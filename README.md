@@ -10,8 +10,8 @@ F1 (Utility Code)
 F2 (Game Functionality)
 - restart
 - guess
-- solve [Not Complete]
+- solve 
 
-Disclaimer
-- A section near the bottom of the f2 file stores all the functions for f2
-- Further commenting will be added soon 
+[INFO]
+- The Files marked v2 or IMMERSIVE make use of improved functions and have inline comments to explain logic behind them 
+
