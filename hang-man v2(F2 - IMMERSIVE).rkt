@@ -37,6 +37,7 @@
 (define total-hits (length word-to-guess))
 (define glossary (map string->list list-of-words))
 
+(display glossary)
 
 
 
@@ -265,17 +266,33 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
    
 ;; p: all-words as list of list of char
-(define (words-containing all-words char ) null)
-
-
+(define (words-containing lst ele)
+            (cond 
+                [(empty? lst)
+                 empty
+                ]
+                [(member ele (car lst))
+                    (cons (car lst)(words-containing (cdr lst) ele ))
+                ]
+                [else
+                    (words-containing (cdr lst) ele )
+                ]
+            )
+)
 ;; p: all-words as list of list of char
 ;;  : chars as a list of char
-(define (words-containing-ext all-words chars) null)
-
+define (words-containing-ext lst ele)
+  (foldl
+   (lambda (x y)
+     ( words-containing y x ))
+    lst ele)
+)
 ;; IO([String])
-;; this is very hard.
+;; this is very hard. ;;; NOT COMPELTED !!!
 (define (sieve chars) (void))
 
+
+;;;TESTIING/GAME
 (restart)
 (display word-to-guess)
 (guess #\a)
